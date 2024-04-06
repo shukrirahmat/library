@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 5px 20px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.top {
+    height: 150px;
+    display: flex;
+    align-items: end;
+}
+
+.logo {
+    font-size: 64px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+    font-weight: 900;
+    color: cornflowerblue;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+thead th:nth-child(1) {
+    width: 40%;
+}
+
+thead th:nth-child(2) {
+    width: 30%;
+}
+
+thead th:nth-child(3) {
+    width: 15%;
+}
+
+thead th:nth-child(4) {
+    width: 15%;
+}
+
+th,
+td {
+  padding: 5px 10px;
+  border: 1px solid gray;
+}
+
+thead {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+tbody td {
+    text-align: center;
+}
+
