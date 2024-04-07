@@ -1,13 +1,31 @@
 const myLibrary = [];
 const dialog = document.querySelector('dialog');
+const dialogbtn = document.querySelector('.dialogbtn');
+const form = document.querySelector('form');
 const addbtn = document.querySelector('.addbtn');
 const closebtn = document.querySelector('.closebtn');
+const booktitle = document.querySelector("#title");
+const bookauthor = document.querySelector("#author");
+const bookpages = document.querySelector("#pages");
+const bookread = document.querySelector("#read");
 
-addbtn.addEventListener("click", () => {
+dialogbtn.addEventListener("click", () => {
     dialog.showModal();
 });
 
-closebtn.addEventListener("click", () => {
+form.addEventListener("submit", (event) => {
+    const book = new Book(booktitle.value, bookauthor.value, bookpages.value, bookread.checked);
+    addBookToLibrary(book);
+    event.preventDefault();
+    dialog.close();
+    booktitle.value = "";
+    bookauthor.value = "";
+    bookpages.value = "";
+    bookread.checked = false;
+})
+
+closebtn.addEventListener("click", (event) => {
+    event.preventDefault();
     dialog.close();
 });
 
@@ -20,10 +38,13 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
+    updateLibrary();
 }
 
 function updateLibrary() {
-    const tbody = document.querySelector('tbody');
+    const table = document.querySelector('table');
+    const oldtbody = document.querySelector('tbody');
+    const newtbody = document.createElement('tbody');
     for (let book of myLibrary) {
         const newRow = document.createElement('tr');
         const title = document.createElement('td')
@@ -38,12 +59,9 @@ function updateLibrary() {
         newRow.appendChild(author);
         newRow.appendChild(pages);
         newRow.appendChild(read);
-        tbody.appendChild(newRow);
+        newtbody.appendChild(newRow);
     }
-}
+    table.replaceChild(newtbody, oldtbody);
 
-const disclosure = new Book("Disclosure", "Michael Crichton", 440, true)
-const wayofkings = new Book("The Way of Kings", "Brandon Sanderson", 1200, false)
-addBookToLibrary(disclosure);
-addBookToLibrary(wayofkings);
+}
 updateLibrary();
