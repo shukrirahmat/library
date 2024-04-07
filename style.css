@@ -1,6 +1,15 @@
+@font-face {
+    font-family: 'Amaranth';
+    src: url(fonts/Amaranth-Regular.ttf);
+}
+
 body {
     margin: 0;
     padding: 5px 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+button, input {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
@@ -26,6 +35,7 @@ body {
     font-style: italic;
     font-weight: 900;
     color: cornflowerblue;
+    font-family: 'Amaranth', sans-serif;
 }
 
 .addbtn {
@@ -36,8 +46,8 @@ body {
     border: none;
     padding: 10px 20px;
     text-decoration: none;
-    border-radius: 15px;
-    margin-bottom: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
 
 }
 
