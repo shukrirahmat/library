@@ -1,24 +1,44 @@
 body {
     margin: 0;
     padding: 5px 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 * {
     box-sizing: border-box;
 }
 
+::backdrop {
+    background-color: gray;
+    opacity: 0.75;
+}
+
 .top {
     height: 150px;
     display: flex;
+    flex-direction: row;
     align-items: end;
+    justify-content: space-between;
 }
 
 .logo {
     font-size: 64px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-style: italic;
     font-weight: 900;
     color: cornflowerblue;
+}
+
+.addbtn {
+    background-color: cornflowerblue;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 15px;
+    margin-bottom: 10px;
+
 }
 
 table {
@@ -26,7 +46,6 @@ table {
     width: 100%;
     border-collapse: collapse;
     border: 2px solid black;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 thead th:nth-child(1) {
@@ -58,5 +77,53 @@ thead {
 
 tbody td {
     text-align: center;
+}
+
+dialog {
+    color: white;
+    background-color: cornflowerblue;
+    border: 2px solid black;
+}
+
+form {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.textinput {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.textinput input {
+    width: 400px;
+    font-size: 18px;
+    padding: 5px 10px;
+}
+
+.formbottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.formbottom div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+form button {
+    border: none;
+    text-decoration: none;
+    width: 80px;
+    padding: 5px 0px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 12px;
 }
 

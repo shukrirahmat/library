@@ -1,4 +1,15 @@
 const myLibrary = [];
+const dialog = document.querySelector('dialog');
+const addbtn = document.querySelector('.addbtn');
+const closebtn = document.querySelector('.closebtn');
+
+addbtn.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+closebtn.addEventListener("click", () => {
+    dialog.close();
+});
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -22,7 +33,7 @@ function updateLibrary() {
         const pages = document.createElement('td')
         pages.textContent = book.pages;
         const read = document.createElement('td')
-        read.textContent = book.read? 'Read' : 'Not Read';
+        read.textContent = book.read ? 'Read' : 'Not Read';
         newRow.appendChild(title);
         newRow.appendChild(author);
         newRow.appendChild(pages);
