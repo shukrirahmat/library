@@ -36,6 +36,14 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+Book.prototype.toggleRead = function() {
+    if (this.read) {
+        this.read = false;
+    } else {
+        this.read = true;
+    }
+}
+
 function addBookToLibrary(book) {
     myLibrary.push(book);
     updateLibrary();
@@ -66,8 +74,15 @@ function updateLibrary() {
         const pages = document.createElement('td')
         pages.textContent = book.pages;
 
-        const read = document.createElement('td')
-        read.textContent = book.read ? 'Read' : 'Not Read';
+        const read = document.createElement('td');
+        const togglebtn = document.createElement('button');
+        togglebtn.classList.add('togglebtn');
+        togglebtn.textContent = book.read ? 'Read' : 'Not Read';
+        togglebtn.addEventListener('click', () => {
+            book.toggleRead();
+            updateLibrary();
+        });
+        read.appendChild(togglebtn);
         
         const removetd = document.createElement('td');
         const removebtn = document.createElement('button')
@@ -90,4 +105,7 @@ function updateLibrary() {
     table.replaceChild(newtbody, oldtbody);
 
 }
+
+const hobbit = new Book('The Hobbit', 'J.R.R Tolkien', 295, false);
+addBookToLibrary(hobbit);
 updateLibrary();
