@@ -63,7 +63,7 @@ thead th:nth-child(1) {
 }
 
 thead th:nth-child(2) {
-    width: 30%;
+    width: 20%;
 }
 
 thead th:nth-child(3) {
@@ -72,6 +72,10 @@ thead th:nth-child(3) {
 
 thead th:nth-child(4) {
     width: 15%;
+}
+
+thead th:nth-child(5) {
+    width: 10%;
 }
 
 th,
@@ -87,6 +91,10 @@ thead {
 
 tbody td {
     text-align: center;
+}
+
+tbody .left-aligned {
+    text-align: left;
 }
 
 dialog {

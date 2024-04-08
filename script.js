@@ -41,25 +41,51 @@ function addBookToLibrary(book) {
     updateLibrary();
 }
 
+function removeBook(index) {
+    myLibrary.splice(index, 1);
+    updateLibrary();
+}
+
 function updateLibrary() {
     const table = document.querySelector('table');
     const oldtbody = document.querySelector('tbody');
     const newtbody = document.createElement('tbody');
+    let bookIndex = 0;
     for (let book of myLibrary) {
+        book.id = bookIndex;
         const newRow = document.createElement('tr');
+
         const title = document.createElement('td')
         title.textContent = book.title;
+        title.classList.add("left-aligned");
+
         const author = document.createElement('td')
         author.textContent = book.author;
+        author.classList.add("left-aligned");
+
         const pages = document.createElement('td')
         pages.textContent = book.pages;
+
         const read = document.createElement('td')
         read.textContent = book.read ? 'Read' : 'Not Read';
+        
+        const removetd = document.createElement('td');
+        const removebtn = document.createElement('button')
+        removebtn.classList.add('removebtn');
+        removebtn.textContent = "Delete";
+        removebtn.addEventListener('click', () => {
+            removeBook(book.id);
+        });
+        removetd.appendChild(removebtn);
+
         newRow.appendChild(title);
         newRow.appendChild(author);
         newRow.appendChild(pages);
         newRow.appendChild(read);
+        newRow.appendChild(removetd);
         newtbody.appendChild(newRow);
+
+        bookIndex++;
     }
     table.replaceChild(newtbody, oldtbody);
 
